@@ -387,13 +387,16 @@
             $('#' + id).datepicker();
             $('#' + id).datepicker({ dateFormat: 'mm-dd-yy' }); // format to show
             $('#' + id).datepicker('setDate', '1/1/2017');
+            $('#' + id).removeClass('hasDatepicker');//// fix refrest datepicker
             $('#' + id).datepicker({
-                "autoSize": true,
+                inline: true,
                 onSelect: function(date) {
                     var dateTime = new Date(date);
-                    this.viewDetailDate(dateTime);
+                    CDEVWidgetForstCast.viewDetailDate(dateTime);
                 }
             });
+
+            $('.ui-widget.ui-widget-content:eq(1)').remove(); // fix refrest datepicker
           this.addStartToDate(starts);
         },
         /**
