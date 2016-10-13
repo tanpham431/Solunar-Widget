@@ -384,9 +384,11 @@
         },
         createCalendar: function(id) {
           var starts = this.getRating($monthData);
+            $('#' + id).datepicker();
+            $('#' + id).datepicker({ dateFormat: 'mm-dd-yy' }); // format to show
+            $('#' + id).datepicker('setDate', '1/1/2017');
             $('#' + id).datepicker({
                 "autoSize": true,
-                "setDate": "10/12/2012",
                 onSelect: function(date) {
                     var dateTime = new Date(date);
                     this.viewDetailDate(dateTime);
@@ -454,7 +456,7 @@
             console.log(err);
 
 
-            
+
         });
     });
 </script>
