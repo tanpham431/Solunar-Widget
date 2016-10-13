@@ -1,0 +1,34 @@
+Date,Sun Rise,Sun Set,Length of Day,Moon Rise,Moon Set,Moon Overhead,Moon Underfoot,Moon Phase,Major Times 1,Major Times 2,Minor Times 1, Minor Times 2,Prediction,Rating
+5/1/2017,6:29 AM,8:45 PM,14 hrs. 16 mins.,11:19 AM,1:32 AM,6:54 PM,6:25 AM,34% Waxing,6:25 AM - 8:25 AM,6:54 PM - 8:54 PM,1:32 AM - 2:32 AM,11:19 AM - 12:19 PM,Average,1
+5/2/2017,6:28 AM,8:46 PM,14 hrs. 18 mins.,12:24 PM,2:22 AM,7:49 PM,7:22 AM,50% First,7:22 AM - 9:22 AM,7:49 PM - 9:49 PM,2:22 AM - 3:22 AM,12:24 PM - 1:24 PM,Average,1
+5/3/2017,6:26 AM,8:48 PM,14 hrs. 22 mins.,1:31 PM,3:04 AM,8:41 PM,8:15 AM,56% Waxing,8:15 AM - 10:15 AM,8:41 PM - 10:41 PM,3:04 AM - 4:04 AM,1:31 PM - 2:31 PM,Average,1
+5/4/2017,6:25 AM,8:49 PM,14 hrs. 24 mins.,2:35 PM,3:41 AM,9:30 PM,9:06 AM,66% Waxing,9:06 AM - 11:06 AM,9:30 PM - 11:30 PM,3:41 AM - 4:41 AM,2:35 PM - 3:35 PM,Average,1
+5/5/2017,6:23 AM,8:50 PM,14 hrs. 27 mins.,3:40 PM,4:13 AM,10:16 PM,9:53 AM,76% Waxing,9:53 AM - 11:53 AM,10:16 PM - 12:16 AM,4:13 AM - 5:13 AM,3:40 PM - 4:40 PM,Average,1
+5/6/2017,6:22 AM,8:51 PM,14 hrs. 29 mins.,4:42 PM,4:42 AM,11:01 PM,10:39 AM,84% Waxing,10:39 AM - 12:39 PM,11:01 PM - 1:01 AM,4:42 AM - 5:42 AM,4:42 PM - 5:42 PM,Average,1
+5/7/2017,6:21 AM,8:52 PM,14 hrs. 31 mins.,5:44 PM,5:10 AM,--:--,11:23 AM,90% Waxing,--:-- - --:--,11:23 AM - 1:23 PM,5:10 AM - 6:10 AM,5:44 PM - 6:44 PM,Good,2
+5/8/2017,6:19 AM,8:54 PM,14 hrs. 35 mins.,6:44 PM,5:37 AM,--:--,12:07 PM,95% Waxing,--:-- - --:--,12:07 PM - 2:07 PM,5:37 AM - 6:37 AM,6:44 PM - 7:44 PM,Better,3
+5/9/2017,6:18 AM,8:55 PM,14 hrs. 37 mins.,7:44 PM,6:04 AM,12:29 AM,12:51 PM,99% Waxing,12:29 AM - 2:29 AM,12:51 PM - 2:51 PM,6:04 AM - 7:04 AM,7:44 PM - 8:44 PM,Better,3
+5/10/2017,6:17 AM,8:56 PM,14 hrs. 39 mins.,8:42 PM,6:33 AM,1:13 AM,1:35 PM,100% FULL,1:13 AM - 3:13 AM,1:35 PM - 3:35 PM,6:33 AM - 7:33 AM,8:42 PM - 9:42 PM,Best,4
+5/11/2017,6:16 AM,8:57 PM,14 hrs. 41 mins.,9:40 PM,7:05 AM,1:58 AM,2:20 PM,99% Waning,1:58 AM - 3:58 AM,2:20 PM - 4:20 PM,7:05 AM - 8:05 AM,9:40 PM - 10:40 PM,Best,4
+5/12/2017,6:14 AM,8:58 PM,14 hrs. 44 mins.,10:36 PM,7:40 AM,2:43 AM,3:06 PM,97% Waning,2:43 AM - 4:43 AM,3:06 PM - 5:06 PM,7:40 AM - 8:40 AM,10:36 PM - 11:36 PM,Better,3
+5/13/2017,6:13 AM,9:00 PM,14 hrs. 47 mins.,11:28 PM,8:19 AM,3:30 AM,3:54 PM,93% Waning,3:30 AM - 5:30 AM,3:54 PM - 5:54 PM,8:19 AM - 9:19 AM,11:28 PM - 12:28 AM,Good,2
+5/14/2017,6:12 AM,9:01 PM,14 hrs. 49 mins.,--:--,9:04 AM,4:17 AM,4:41 PM,88% Waning,4:17 AM - 6:17 AM,4:41 PM - 6:41 PM,--:-- - --:--,9:04 AM - 10:04 AM,Average,1
+5/15/2017,6:11 AM,9:02 PM,14 hrs. 51 mins.,12:17 AM,9:53 AM,5:05 AM,5:29 PM,81% Waning,5:05 AM - 7:05 AM,5:29 PM - 7:29 PM,12:17 AM - 1:17 AM,9:53 AM - 10:53 AM,Average,1
+5/16/2017,6:10 AM,9:03 PM,14 hrs. 53 mins.,1:01 AM,10:46 AM,5:53 AM,6:18 PM,73% Waning,5:53 AM - 7:53 AM,6:18 PM - 8:18 PM,1:01 AM - 2:01 AM,10:46 AM - 11:46 AM,Average,1
+5/17/2017,6:09 AM,9:04 PM,14 hrs. 55 mins.,1:42 AM,11:44 AM,6:42 AM,7:05 PM,64% Waning,6:42 AM - 8:42 AM,7:05 PM - 9:05 PM,1:42 AM - 2:42 AM,11:44 AM - 12:44 PM,Average,1
+5/18/2017,6:08 AM,9:05 PM,14 hrs. 57 mins.,2:18 AM,12:44 PM,7:29 AM,7:53 PM,50% Last,7:29 AM - 9:29 AM,7:53 PM - 9:53 PM,2:18 AM - 3:18 AM,12:44 PM - 1:44 PM,Average,1
+5/19/2017,6:07 AM,9:06 PM,14 hrs. 59 mins.,2:52 AM,1:49 PM,8:17 AM,8:42 PM,43% Waning,8:17 AM - 10:17 AM,8:42 PM - 10:42 PM,2:52 AM - 3:52 AM,1:49 PM - 2:49 PM,Average,1
+5/20/2017,6:06 AM,9:07 PM,15 hrs. 01 mins.,3:24 AM,2:55 PM,9:06 AM,9:31 PM,33% Waning,9:06 AM - 11:06 AM,9:31 PM - 11:31 PM,3:24 AM - 4:24 AM,2:55 PM - 3:55 PM,Average,1
+5/21/2017,6:05 AM,9:08 PM,15 hrs. 03 mins.,3:55 AM,4:04 PM,9:56 AM,10:21 PM,23% Waning,9:56 AM - 11:56 AM,10:21 PM - 12:21 AM,3:55 AM - 4:55 AM,4:04 PM - 5:04 PM,Average,1
+5/22/2017,6:04 AM,9:10 PM,15 hrs. 06 mins.,4:26 AM,5:17 PM,10:47 AM,11:13 PM,14% Waning,10:47 AM - 12:47 PM,11:13 PM - 1:13 AM,4:26 AM - 5:26 AM,5:17 PM - 6:17 PM,Average,1
+5/23/2017,6:03 AM,9:11 PM,15 hrs. 08 mins.,4:59 AM,6:31 PM,11:40 AM,--:--,7% Waning,11:40 AM - 1:40 PM,--:-- - --:--,4:59 AM - 5:59 AM,6:31 PM - 7:31 PM,Good,2
+5/24/2017,6:03 AM,9:12 PM,15 hrs. 09 mins.,5:36 AM,7:47 PM,12:37 PM,12:08 AM,2% Waning,12:08 AM - 2:08 AM,12:37 PM - 2:37 PM,5:36 AM - 6:36 AM,7:47 PM - 8:47 PM,Better,3
+5/25/2017,6:02 AM,9:13 PM,15 hrs. 11 mins.,6:17 AM,9:02 PM,1:36 PM,1:06 AM,0% NEW,1:06 AM - 3:06 AM,1:36 PM - 3:36 PM,6:17 AM - 7:17 AM,9:02 PM - 10:02 PM,Best,4
+5/26/2017,6:01 AM,9:14 PM,15 hrs. 13 mins.,7:05 AM,10:14 PM,2:38 PM,2:07 AM,1% Waxing,2:07 AM - 4:07 AM,2:38 PM - 4:38 PM,7:05 AM - 8:05 AM,10:14 PM - 11:14 PM,Better,3
+5/27/2017,6:00 AM,9:15 PM,15 hrs. 15 mins.,8:00 AM,11:19 PM,3:40 PM,3:09 AM,5% Waxing,3:09 AM - 5:09 AM,3:40 PM - 5:40 PM,8:00 AM - 9:00 AM,11:19 PM - 12:19 AM,Better,3
+5/28/2017,6:00 AM,9:15 PM,15 hrs. 15 mins.,9:02 AM,--:--,4:42 PM,4:11 AM,12% Waxing,4:11 AM - 6:11 AM,4:42 PM - 6:42 PM,9:02 AM - 10:02 AM,--:-- - --:--,Average,1
+5/29/2017,5:59 AM,9:16 PM,15 hrs. 17 mins.,10:09 AM,12:15 AM,5:40 PM,5:11 AM,20% Waxing,5:11 AM - 7:11 AM,5:40 PM - 7:40 PM,12:15 AM - 1:15 AM,10:09 AM - 11:09 AM,Average,1
+5/30/2017,5:58 AM,9:17 PM,15 hrs. 19 mins.,11:17 AM,1:02 AM,6:35 PM,6:08 AM,30% Waxing,6:08 AM - 8:08 AM,6:35 PM - 8:35 PM,1:02 AM - 2:02 AM,11:17 AM - 12:17 PM,Average,1
+5/31/2017,5:58 AM,9:18 PM,15 hrs. 20 mins.,12:25 PM,1:42 AM,7:26 PM,7:01 AM,41% Waxing,7:01 AM - 9:01 AM,7:26 PM - 9:26 PM,1:42 AM - 2:42 AM,12:25 PM - 1:25 PM,Average,1
+Solunar Predictions for: KALKASKA MI 49646 (local time shown) for the month of May 2017
+

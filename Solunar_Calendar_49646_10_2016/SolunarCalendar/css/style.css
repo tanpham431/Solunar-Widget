@@ -1,0 +1,96 @@
+table.solunar_outer 
+{
+    border: 0px;
+    border-style: solid;
+    border-color: #8b825f;
+    padding: 5px; 
+    font-family: Arial, Sans-Serif;
+    font-size:0.9em;
+    background-color: #8b825f;                       
+}
+table.solunar_buffer {
+    border: 0px;
+    border-style: solid;
+    border-color: #8b825f;
+    padding: 5px; 
+    font-family: Arial, Sans-Serif;
+	font-size:0.9em;
+    background-color: #FFFFFF;                       
+}
+table.solunar_inner {
+	padding: 4px;
+	border-collapse: collapse;
+	background-color: #8b825f;
+	font-family: Arial, Sans-Serif;
+	font-size:0.9em;
+	color: #000000;
+}
+table.solunar_inner th {
+	border-width: 1px; 
+	padding: 4px;
+	border-style: solid;
+	border-color:  #8b825f;
+	background-color: white;
+	font-family: Arial, Sans-Serif;
+	font-size:0.9em;
+	color: #000000;
+	text-align: center;
+}
+table.solunar_inner td.d {
+	border-width: 0px;
+	padding: 4px;
+	border-color: #8b825f;  
+	background-color: white;
+	font-family: Arial, Sans-Serif;
+	font-size:0.9em;
+	color: #000000;
+	text-align: left;
+}
+table.solunar_inner td {
+	border-width: 1px; 
+	padding: 4px;
+	border-style: solid;
+	border-color: #8b825f;
+	background-color: white;
+	font-family: Arial, Sans-Serif;
+	font-size:0.9em;
+	color: #000000;
+	text-align: center;
+}
+table.solunar_calendar{
+	border-width: 1px;
+	padding: 4px;
+	border-style: solid;
+	border-collapse: collapse; 
+	border-color: #8b825f;
+	background-color: white;
+	font-family: Arial, Sans-Serif;
+	font-family:"Lucida Sans", Verdana, "Lucida Grande", Geneva, sans-serif;
+	font-size:0.9em;
+	color: #000000;
+	text-align: left;
+}
+table.solunar_calendar td{
+	border-width: 1px;
+	padding: 4px;
+	border-style: solid;
+	border-color: #8b825f;
+	background-color: white;
+	font-family: Arial, Sans-Serif;
+	font-family:"Lucida Sans", Verdana, "Lucida Grande", Geneva, sans-serif;
+	font-size:0.9em;
+	color: #000000;
+	text-align: left;
+}
+table.solunar_calendar td.d{
+	border-width: 1px;
+	padding: 4px;
+	border-style: solid;
+	border-color: #8b825f;
+	background-color: white;
+	font-family: Arial, Sans-Serif;
+	font-family:"Lucida Sans", Verdana, "Lucida Grande", Geneva, sans-serif;
+	font-size:0.9em;
+	color: #000000;
+	text-align: center;
+}

@@ -1,0 +1,457 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<link rel="stylesheet" href="http://ftpcontent.worldnow.com/wncustom/js/jqueryui.css" media="screen" title="no title">
+<script type="text/javascript" src="http://ftpcontent.worldnow.com/wncustom/js/jquery-ui.js"></script>
+
+<style type="text/css">
+
+    /***  SPINNER ****/
+
+    .spinner {
+        margin: 10px 20px;
+        text-align: center;
+        display: inline-block;
+    }
+
+    .spinner svg {
+        background-color: rgb(255, 255, 255);
+        border-radius: 50%;
+        padding: 8px;
+        box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+    }
+
+    .qp-circular-loader {
+        width: 64px;
+        /* 2*RADIUS + STROKEWIDTH */
+        height: 64px;
+        /* 2*RADIUS + STROKEWIDTH */
+        stroke-width: 3px;
+    }
+
+    .qp-circular-loader-path {
+        stroke-dasharray: 58.9;
+        /* 2*RADIUS*PI * ARCSIZE/360 */
+        stroke-dashoffset: 58.9;
+        /* 2*RADIUS*PI * ARCSIZE/360 */
+        /* hides things initially */
+    }
+    /* SVG elements seem to have a different default origin */
+
+    .qp-circular-loader,
+    .qp-circular-loader * {
+        -webkit-transform-origin: 50% 50%;
+        transform-origin: 50% 50%;
+    }
+    /* Rotating the whole thing */
+
+    @-webkit-keyframes rotate {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes rotate {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .qp-circular-loader {
+        -webkit-animation-name: rotate;
+        animation-name: rotate;
+        -webkit-animation-duration: 1568.63ms;
+        animation-duration: 1568.63ms;
+        /* 360 * ARCTIME / (ARCSTARTROT + (360-ARCSIZE)) */
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        animation-timing-function: linear;
+    }
+    /* Filling and unfilling the arc */
+
+    @-webkit-keyframes fillunfill {
+        from {
+            stroke-dashoffset: 58.8
+            /* 2*RADIUS*PI * ARCSIZE/360 - 0.1 */
+            /* 0.1 a bit of a magic constant here */
+        }
+        50% {
+            stroke-dashoffset: 0;
+        }
+        to {
+            stroke-dashoffset: -58.4
+            /* -(2*RADIUS*PI * ARCSIZE/360 - 0.5) */
+            /* 0.5 a bit of a magic constant here */
+        }
+    }
+
+    @keyframes fillunfill {
+        from {
+            stroke-dashoffset: 58.8
+            /* 2*RADIUS*PI * ARCSIZE/360 - 0.1 */
+            /* 0.1 a bit of a magic constant here */
+        }
+        50% {
+            stroke-dashoffset: 0;
+        }
+        to {
+            stroke-dashoffset: -58.4
+            /* -(2*RADIUS*PI * ARCSIZE/360 - 0.5) */
+            /* 0.5 a bit of a magic constant here */
+        }
+    }
+
+    @-webkit-keyframes rot {
+        from {
+            -webkit-transform: rotate(0deg);
+        }
+        to {
+            -webkit-transform: rotate(-360deg);
+        }
+    }
+
+    @keyframes rot {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(-360deg);
+        }
+    }
+
+    @-webkit-keyframes colors {
+        0% {
+            stroke: #754fa0;
+        }
+        20% {
+            stroke: #09b7bf;
+        }
+        40% {
+            stroke: #90d36b;
+        }
+        60% {
+            stroke: #f2d40d;
+        }
+        80% {
+            stroke: #fcb12b;
+        }
+        100% {
+            stroke: #ed1b72;
+        }
+    }
+
+    @keyframes colors {
+        0% {
+            stroke: #754fa0;
+        }
+        20% {
+            stroke: #09b7bf;
+        }
+        40% {
+            stroke: #90d36b;
+        }
+        60% {
+            stroke: #f2d40d;
+        }
+        80% {
+            stroke: #fcb12b;
+        }
+        100% {
+            stroke: #ed1b72;
+        }
+    }
+
+    .qp-circular-loader-path {
+        -webkit-animation-name: fillunfill, rot, colors;
+        animation-name: fillunfill, rot, colors;
+        -webkit-animation-duration: 1333ms, 5332ms, 5332ms;
+        animation-duration: 1333ms, 5332ms, 5332ms;
+        /* ARCTIME, 4*ARCTIME, 4*ARCTIME */
+        -webkit-animation-iteration-count: infinite, infinite, infinite;
+        animation-iteration-count: infinite, infinite, infinite;
+        -webkit-animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1), steps(4), linear;
+        animation-timing-function: cubic-bezier(0.4, 0.0, 0.2, 1), steps(4), linear;
+        -webkit-animation-play-state: running, running, running;
+        animation-play-state: running, running, running;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+
+    div#divSpinner {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0px;
+        background: rgba(128, 128, 128, 0.56);
+    }
+
+    div#divSpinner .spinner {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+    /*  styling   */
+
+    #WNWidgetsContainerWeatherForcast {
+        max-width: 650px;
+        height: auto;
+        background: gray;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    div#datepickerCustom {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .ui-widget.ui-widget-content {
+        width: 100%;
+        display: block;
+        height: 420px;
+        padding: 0px;
+    }
+
+    div#ui-datepicker-div {
+        display: none;
+    }
+
+    .ui-datepicker .ui-datepicker-header {
+        border: none;
+        background: white;
+        border-radius: 0px;
+        border-bottom: 1px solid green;
+    }
+
+    .ui-state-default,
+    .ui-widget-content .ui-state-default {
+        border: 0px;
+        text-align: center;
+        padding: 10px 0px;
+    }
+
+    table>tbody>tr {
+        border-bottom: 1px solid #bec1be;
+    }
+
+    table>tbody>tr:last-child {
+        border-bottom: none;
+    }
+
+    .ui-state-highlight,
+    .ui-widget-content .ui-state-highlight,
+    .ui-widget-header .ui-state-highlight {
+        background: none;
+        color: #ff2d09;
+        font-weight: bold;
+    }
+</style>
+
+<div id="WNWidgetsContainerWeatherForcast">
+    <draftdata style="display: none;">
+      <month month="" year="" >
+          <day Date="" SunRise="" SunSet="" LengthofDay="" MoonRise="" MoonSet="" MoonOverhead="" MoonUnderfoot="" MoonPhase="" MajorTimes1="" MajorTimes2="" MinorTimes1=""  MinorTimes2="" Prediction=""  Rating=""  ></day>
+      </month>
+    </draftdata>
+    <div id="datepickerCustom">
+
+    </div>
+    <div id="divSpinner">
+        <div class="spinner">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1" width="48px" height="48px" viewBox="0 0 28 28">
+                <g class="qp-circular-loader">
+                    <path class="qp-circular-loader-path" fill="none" d="M 14,1.5 A 12.5,12.5 0 1 1 1.5,14" stroke-linecap="round" />
+                </g>
+            </svg>
+        </div>
+    </div>
+    <div id="dayDetail">
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    var zipcode = 49646;
+    var fileExtension = '.csv';
+    var poxyURL = 'https://crossorigin.me/';
+    var ftp = 'http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/';
+    var $monthData = ''; // current month
+    var CDEVWidgetForstCast = {
+        showLoading: function() {
+            $('#divSpinner').show();
+        },
+        hideLoading: function() {
+            $('#divSpinner').hide();
+        },
+        getData: function(url, callbackSuccess, callbackError) {
+            $.ajax({
+                url: url,
+                success: function(data) {
+                    callbackSuccess(data);
+                },
+                error: function(error) {
+                    callbackError(error);
+                }
+            });
+        },
+        /* all data to covert to standard xml stucture
+          * XML is standard data struture because it easy to query data.
+         */
+        adapterData: function(data, type){
+          switch (type){
+            case 'text':
+                this.convertDataTextToXML( data );
+              break;
+            case '':
+
+              break;
+          }
+        },
+        // convert text data to standard xml
+        convertDataTextToXML: function(data){
+          // handle data
+          var s = data.trim().split('\n');
+          s.pop(); // remove  title
+          s.shift(); // addition information
+          // converting.....
+          var len = s.length;
+          var $month = $('draftdata month'); // 'll contain all day
+          var $day = $month.find('day'); // formating of one day
+          $month.html(''); //reset content of month
+
+          for( var i = 0; i < len; i++){
+            //<day Date="" SunRise="" SunSet="" LengthofDay="" MoonRise="" MoonSet=""
+            //MoonOverhead="" MoonUnderfoot="" MoonPhase="" MajorTimes1="" MajorTimes2="" MinorTimes1=""
+            // MinorTimes2="" Prediction=""  Rating=""  ></day>
+            var $d = $day.clone();
+            var com = s[i].split(',');
+            // Date
+            $d.attr('Date', com[0]);
+            // Sunrise
+            $d.attr('SunRise', com[1]);
+            // Sunset
+            $d.attr('SunSet', com[2]);
+            // Length of Day
+            $d.attr('LengthofDay', com[3]);
+            // Moon Rise
+            $d.attr('MoonRise', com[4]);
+            // Moon Set
+            $d.attr('MoonSet', com[5]);
+            // Moon Phase
+            $d.attr('MoonPhase', com[8]);
+            // Major Times 1 (Labeled Excellent Times)
+            $d.attr('MajorTimes1', com[9]);
+            // Major Times 2 (Labeled Excellent Times)
+            $d.attr('MajorTimes2', com[10]);
+            // Minor Times 1 (Labeled Good Times)
+            $d.attr('MinorTimes1', com[11]);
+            // Minor Times 2 (Labeled Good Times)
+            $d.attr('MinorTimes2', com[12]);
+            // Prediction
+            $d.attr('Prediction', com[13]);
+            // Rating
+            $d.attr('rating', com[14]);
+            // out fields
+              // MoonOverhead
+              $d.attr('MoonOverhead', s[6]);
+              // MoonUnderfoot
+              $d.attr('MoonUnderfoot', s[7]);
+            $month.append($d);
+          }
+          $monthData = $month;
+
+        },
+        /* view detail of day */
+        viewDetailDate: function(time) {
+
+        },
+        /**
+         * add some components to calendar
+         * @param  {[type]} month [description]
+         * @param  {[type]} data  [description]
+         * @return {[type]}       [description]
+         */
+        customMonthOfCalendar: function(month, data) {
+
+        },
+        createCalendar: function(id) {
+          var starts = this.getRating($monthData);
+            $('#' + id).datepicker({
+                "autoSize": true,
+                "setDate": "10/12/2012",
+                onSelect: function(date) {
+                    var dateTime = new Date(date);
+                    this.viewDetailDate(dateTime);
+                }
+            });
+          this.addStartToDate(starts);
+        },
+        /**
+         * gat rating
+         * @param  {[type]} data [description]
+         * @return {[Array]}      all day of month
+         */
+        getRating: function($data) {
+            var $days = $data.find('day');
+            var len = $days.length;
+            var onestar = '1star.gif';
+            var twostar = '2star.gif';
+            var threestar = '3star.gif';
+            var fourstar = '4star.gif';
+            var urlImage = ftp + 'SolunarCalendarImages/';
+            var stars = [];
+            for (var i = 0; i < len; i++) {
+                var $day = $($days[i]);
+                var number = Number( $day.attr('rating') );
+                switch (number) {
+                    case 1:
+                        stars.push( urlImage + onestar );
+                        break;
+                    case 2:
+                        stars.push( urlImage + twostar );
+                        break;
+                    case 3:
+                        stars.push( urlImage + threestar );
+                        break;
+                    case 4:
+                        stars.push( urlImage + fourstar );
+                        break;
+                }
+
+            }
+            return stars;
+        },
+        addStartToDate: function (stars){
+          $('#datepickerCustom > div > table > tbody > tr > td > a').each(function(index){
+            $this = $(this);
+            $this.append('<img src='+ stars[index] + ' style="display: block;margin: 0 auto;max-width: 60%;" >');
+          });
+        }
+
+    }
+    $(function() {
+        var time = new Date();
+        var month = 1;
+        var year = 2017;
+        var url = poxyURL + ftp + 'csv/' + zipcode + '_' + month + '_' + year + fileExtension;
+        CDEVWidgetForstCast.showLoading();
+        CDEVWidgetForstCast.getData(url, function(data) {
+            // console.log(data);
+            CDEVWidgetForstCast.adapterData(data, 'text');
+            // create Calendar
+             CDEVWidgetForstCast.createCalendar('datepickerCustom');
+
+            CDEVWidgetForstCast.hideLoading();
+        }, function(err) {
+            console.log(err);
+        });
+    });
+</script>
