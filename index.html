@@ -645,6 +645,7 @@
     ftp = 'http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/';
     var mapGoole = 'http://maps.googleapis.com/maps/api/geocode/json?address={*zipcode*}&sensor=true'; //get name from zip code
     var isData = true; // if have data on server
+    isLastDateOfMont = false;
     var jsonMonth = {
         "city": '',
         "value": -1,
@@ -867,6 +868,7 @@
                     CDEVWidgetForstCast.showLoading();
                     var url = poxyURL + ftp + 'csv/' + zipcode + '_' + month + '_' + year + fileExtension;
                     CDEVWidgetForstCast.getData(url, function(data) {
+                        $('#dayDetail').show();
                         isData = true;
                         // console.log(data);
                         CDEVWidgetForstCast.adapterData(data, 'text');
@@ -874,9 +876,14 @@
                         CDEVWidgetForstCast.addStartToDate(starts); // add Start to calendar
                         CDEVWidgetForstCast.hideLoading();
                         CDEVWidgetForstCast.viewDetailDate(new Date( month + '/1/' + year ));
+                        if ( isLastDateOfMont ){
+                          isLastDateOfMont = false;
+                          $('#datepickerCustom > div > table > tbody > tr > td > a').last().click();
+                        }
                     }, function(err) {
                         isData = false;
                         CDEVWidgetForstCast.hideLoading();
+                        $('#dayDetail').hide();
                     });
                 }
             });
@@ -940,6 +947,33 @@
                 $this = $(this);
                 $this.append('<img src=' + stars[index] + ' style="display: block;margin: 0 auto;max-width: 60%;" >');
             });
+        },
+        addEvents: function(){
+          $('#time > div.dayTime > span:nth-child(3)').click(function(){// next date
+              if ( isData ){
+                var time = new Date( $('#time > div.dayTime > div > div:nth-child(2)').text() );
+                var text = $('#datepickerCustom > div > table > tbody > tr > td > a').last().text();
+                // var numberDate = Number(text.substring(0, text.indexOf('<')));
+                if ( time.getDate() == Number(text) ){
+                  $('#datepickerCustom > div > div > a.ui-datepicker-next.ui-corner-all > span').click();
+                }else
+                  $('#datepickerCustom > div > table > tbody > tr > td > a:eq(' + time.getDate() +  ')').click();
+              }
+          });
+          $('#time > div.dayTime > span:nth-child(1)').click(function(){ // prev date
+            if ( isData ){
+              var time = new Date( $('#time > div.dayTime > div > div:nth-child(2)').text() );
+              var text = $('#datepickerCustom > div > table > tbody > tr > td > a').first().text();
+              // var numberDate = Number(text.substring(0, text.indexOf('<')));
+                if ( time.getDate() == Number(text) ){
+                  $('#datepickerCustom > div > div > a.ui-datepicker-prev.ui-corner-all > span').click();
+                  isLastDateOfMont = true;
+                }
+                else
+                  $('#datepickerCustom > div > table > tbody > tr > td > a:eq(' + ( time.getDate() - 2 ) +  ')').click();
+            }
+          })
+
         }
 
     }
@@ -958,6 +992,7 @@
         // get data
         CDEVWidgetForstCast.showLoading();
         CDEVWidgetForstCast.getData(url, function(data) {
+            $('#dayDetail').show();
             isData = true;
             // console.log(data);
             CDEVWidgetForstCast.adapterData(data, 'text');
@@ -965,10 +1000,12 @@
             CDEVWidgetForstCast.createCalendar('datepickerCustom', new Date());
 
             CDEVWidgetForstCast.hideLoading();
+            CDEVWidgetForstCast.addEvents();
         }, function(err) {
             CDEVWidgetForstCast.hideLoading();
             isData = false;
             CDEVWidgetForstCast.createCalendar('datepickerCustom');
+            $('#dayDetail').hide();
         });
 
     });
