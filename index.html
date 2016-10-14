@@ -4,20 +4,20 @@
 
 <style type="text/css">
     /***  SPINNER ****/
-    
+
     .spinner {
         margin: 10px 20px;
         text-align: center;
         display: inline-block;
     }
-    
+
     .spinner svg {
         background-color: rgb(255, 255, 255);
         border-radius: 50%;
         padding: 8px;
         box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
     }
-    
+
     .qp-circular-loader {
         width: 64px;
         /* 2*RADIUS + STROKEWIDTH */
@@ -25,7 +25,7 @@
         /* 2*RADIUS + STROKEWIDTH */
         stroke-width: 3px;
     }
-    
+
     .qp-circular-loader-path {
         stroke-dasharray: 58.9;
         /* 2*RADIUS*PI * ARCSIZE/360 */
@@ -34,14 +34,14 @@
         /* hides things initially */
     }
     /* SVG elements seem to have a different default origin */
-    
+
     .qp-circular-loader,
     .qp-circular-loader * {
         -webkit-transform-origin: 50% 50%;
         transform-origin: 50% 50%;
     }
     /* Rotating the whole thing */
-    
+
     @-webkit-keyframes rotate {
         from {
             -webkit-transform: rotate(0deg);
@@ -50,7 +50,7 @@
             -webkit-transform: rotate(360deg);
         }
     }
-    
+
     @keyframes rotate {
         from {
             transform: rotate(0deg);
@@ -59,7 +59,7 @@
             transform: rotate(360deg);
         }
     }
-    
+
     .qp-circular-loader {
         -webkit-animation-name: rotate;
         animation-name: rotate;
@@ -72,7 +72,7 @@
         animation-timing-function: linear;
     }
     /* Filling and unfilling the arc */
-    
+
     @-webkit-keyframes fillunfill {
         from {
             stroke-dashoffset: 58.8
@@ -88,7 +88,7 @@
             /* 0.5 a bit of a magic constant here */
         }
     }
-    
+
     @keyframes fillunfill {
         from {
             stroke-dashoffset: 58.8
@@ -104,7 +104,7 @@
             /* 0.5 a bit of a magic constant here */
         }
     }
-    
+
     @-webkit-keyframes rot {
         from {
             -webkit-transform: rotate(0deg);
@@ -113,7 +113,7 @@
             -webkit-transform: rotate(-360deg);
         }
     }
-    
+
     @keyframes rot {
         from {
             transform: rotate(0deg);
@@ -122,7 +122,7 @@
             transform: rotate(-360deg);
         }
     }
-    
+
     @-webkit-keyframes colors {
         0% {
             stroke: #754fa0;
@@ -143,7 +143,7 @@
             stroke: #ed1b72;
         }
     }
-    
+
     @keyframes colors {
         0% {
             stroke: #754fa0;
@@ -164,7 +164,7 @@
             stroke: #ed1b72;
         }
     }
-    
+
     .qp-circular-loader-path {
         -webkit-animation-name: fillunfill, rot, colors;
         animation-name: fillunfill, rot, colors;
@@ -180,7 +180,7 @@
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
     }
-    
+
     div#divSpinner {
         width: 100%;
         height: 100%;
@@ -188,7 +188,7 @@
         top: 0px;
         background: rgba(128, 128, 128, 0.56);
     }
-    
+
     div#divSpinner .spinner {
         width: 20px;
         margin: 0;
@@ -199,14 +199,14 @@
         transform: translate(-50%, -50%);
         text-align: center;
     }
-    
+
     div#divSpinner .spinner span {
         color: white;
         font-size: 20px;
         /* padding: 10px; */
     }
     /*  styling   */
-    
+
     #WNWidgetsContainerWeatherForcast {
         max-width: 650px;
         min-height: 273px;
@@ -214,45 +214,45 @@
         margin: 0 auto;
         position: relative;
     }
-    
+
     div#datepickerCustom {
         width: 100%;
         margin: 0 auto;
         font-size: 19px;
     }
-    
+
     .ui-widget.ui-widget-content {
         width: 100%;
         display: block;
         padding: 0px;
     }
-    
+
     div#ui-datepicker-div {
         display: none;
     }
-    
+
     .ui-datepicker .ui-datepicker-header {
         border: none;
         background: white;
         border-radius: 0px;
         border-bottom: 1px solid green;
     }
-    
+
     .ui-state-default,
     .ui-widget-content .ui-state-default {
         border: 0px;
         text-align: center;
         padding: 10px 0px;
     }
-    
+
     table>tbody>tr {
         border-bottom: 1px solid #bec1be;
     }
-    
+
     table>tbody>tr:last-child {
         border-bottom: none;
     }
-    
+
     .ui-state-highlight,
     .ui-widget-content .ui-state-highlight,
     .ui-widget-header .ui-state-highlight {
@@ -260,19 +260,19 @@
         color: #ff2d09;
         font-weight: bold;
     }
-    
+
     .ui-datepicker .ui-datepicker-next svg {
         -ms-transform: rotate(90deg);
         -webkit-transform: rotate(90deg);
         transform: rotate(90deg);
     }
-    
+
     .ui-datepicker .ui-datepicker-prev svg {
         -ms-transform: rotate(-90deg);
         -webkit-transform: rotate(-90deg);
         transform: rotate(-90deg);
     }
-    
+
     div#dayDetail {
         width: 100%;
         min-height: 300px;
@@ -289,19 +289,19 @@
         /* Standard syntax */
     }
     /*dayDetail*/
-    
+
     div#time {
         width: 100%;
         height: 80px;
     }
-    
+
     div#time .dayRating,
     div#time .dayTime {
         display: inline-block;
         width: 45%;
         height: 100%;
     }
-    
+
     div#time .dayRating {
         float: left;
         color: white;
@@ -335,14 +335,14 @@
         font-size: 38px;
         font-weight: bold;
     }
-    
+
     div#time .dayTime {
         float: right;
         position: relative;
         display: table;
         padding: 0px 5px;
     }
-    
+
     div#time .dayTime span {
         height: 100%;
         cursor: pointer;
@@ -351,62 +351,62 @@
         background: url('http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/images/up_icon.png') center no-repeat;
         /*background-size: contain !important;*/
     }
-    
+
     div#time .dayTime span:hover {
         background: url('http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/images/up_icon.png') center no-repeat rgba(65, 65, 193, 0.33);
     }
-    
+
     div#time .dayTime span:first-child {
         -ms-transform: rotate(-180deg);
         -webkit-transform: rotate(-180deg);
         transform: rotate(-180deg);
     }
-    
+
     div#time .dayTime .inforTime {
         width: 100%;
         height: 100%;
         text-align: center;
         color: white;
     }
-    
+
     div#time .dayTime .inforTime div:first-child {
         text-transform: uppercase;
         font-weight: bold;
         font-size: 23px;
         color: #b8deff;
     }
-    
+
     div#time .dayTime .inforTime div:nth-child(2) {
         text-transform: capitalize;
         color: #acb7c3;
     }
-    
+
     div#time .dayTime .inforTime div:nth-child(3) {
         text-transform: capitalize;
         color: #137196;
     }
-    
+
     .ui-datepicker .ui-datepicker-next {
         background: url('http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/images/calendar_icon_next.png') center no-repeat;
     }
-    
+
     .ui-datepicker .ui-datepicker-prev {
         background: url('http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/images/calendar_icon_next.png') center no-repeat;
         -ms-transform: rotate(-180deg);
         -webkit-transform: rotate(-180deg);
         transform: rotate(-180deg);
     }
-    
+
     div#sunMoon {
         width: 100%;
     }
-    
+
     div#sunMoon .sun,
     div#sunMoon .moon {
         display: table;
         width: 100%;
     }
-    
+
     .image,
     .rise,
     .zenith,
@@ -414,7 +414,7 @@
         display: table-cell;
         padding: 10px 0px;
     }
-    
+
     .rise span,
     .zenith span,
     .set span {
@@ -424,40 +424,40 @@
         font-size: 20px;
         text-transform: uppercase;
     }
-    
+
     .rise span:last-child,
     .zenith span:last-child,
     .set span:last-child {
         color: #29a2b7;
     }
-    
+
     .rise span small,
     .zenith span small,
     .set span small {
         font-size: 15px;
     }
-    
+
     .image {
         width: 50px;
         background: url(http://ftpcontent.worldnow.com/wncustom/wx_icons/wsi50/65.png) center no-repeat;
     }
-    
+
     .majorMinor {
         display: table;
         width: 100%;
         font-size: 15px;
     }
-    
+
     .major,
     .minor {
         display: table-cell;
         width: 50%;
     }
-    
+
     .minor {
         border-left: 1px solid white;
     }
-    
+
     .major>div,
     .minor>div {
         display: inline-block;
@@ -466,37 +466,37 @@
         color: white;
         text-transform: uppercase;
     }
-    
+
     .major>div:first-child,
     .minor>div:first-child {
         float: left;
         padding-left: 10px;
     }
-    
+
     .major>div:nth-child(2),
     .minor>div:nth-child(2) {
         float: right;
         text-align: right;
         padding-right: 10px;
     }
-    
+
     small {
         font-size: 13px !important;
     }
-    
+
     div#location {
         display: table;
         width: 100%;
         height: 50px;
     }
-    
+
     div#location>div {
         width: 50%;
         height: 100%;
         display: table-cell;
         padding: 10px;
     }
-    
+
     div#location>div:last-child {
         text-align: right;
         color: white;
@@ -854,6 +854,9 @@
         },
         createCalendar: function(id, time) {
             $('#' + id).datepicker({
+                autoSize: true
+            });
+            $('#' + id).datepicker({
               dayNamesMin: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
                 onSelect: function(date, inst) {
                     if (isData) {
@@ -894,6 +897,7 @@
             $('#' + id).datepicker({
                 dateFormat: 'mm-dd-yy'
             }); // format to show
+
             // $('#' + id).datepicker('setDate', time);
             if (isData) {
                 var starts = this.getRating(); // get Start
