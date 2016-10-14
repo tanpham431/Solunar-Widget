@@ -3,7 +3,6 @@
 <script type="text/javascript" src="http://ftpcontent.worldnow.com/wncustom/js/jquery-ui.js"></script>
 
 <style type="text/css">
-
     /***  SPINNER ****/
 
     .spinner {
@@ -191,18 +190,26 @@
     }
 
     div#divSpinner .spinner {
+        width: 20px;
         margin: 0;
         position: absolute;
         top: 50%;
         left: 50%;
         margin-right: -50%;
-        transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    div#divSpinner .spinner span {
+        color: white;
+        font-size: 20px;
+        /* padding: 10px; */
     }
     /*  styling   */
 
     #WNWidgetsContainerWeatherForcast {
         max-width: 650px;
-        height: auto;
+        min-height: 273px;
         background: gray;
         margin: 0 auto;
         position: relative;
@@ -216,7 +223,6 @@
     .ui-widget.ui-widget-content {
         width: 100%;
         display: block;
-        height: 420px;
         padding: 0px;
     }
 
@@ -253,14 +259,221 @@
         color: #ff2d09;
         font-weight: bold;
     }
+
+    .ui-datepicker .ui-datepicker-next svg {
+        -ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    .ui-datepicker .ui-datepicker-prev svg {
+        -ms-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+
+    div#dayDetail {
+        width: 100%;
+        min-height: 300px;
+        padding-top: 10px;
+        background: red;
+        /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(#1d4fbf, #516d8a, #005d80);
+        /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(#1d4fbf, #516d8a, #005d80);
+        /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(#1d4fbf, #516d8a, #005d80);
+        /* For Firefox 3.6 to 15 */
+        background: linear-gradient(#1d4fbf, #516d8a, #005d80);
+        /* Standard syntax */
+    }
+    /*dayDetail*/
+
+    div#time {
+        width: 100%;
+        height: 80px;
+    }
+
+    div#time .dayRating,
+    div#time .dayTime {
+        display: inline-block;
+        width: 45%;
+        height: 100%;
+    }
+
+    div#time .dayRating {
+        float: left;
+    }
+
+    div#time .dayTime {
+        float: right;
+        position: relative;
+        display: table;
+        padding: 0px 5px;
+    }
+
+    div#time .dayTime span {
+        height: 100%;
+        cursor: pointer;
+        display: table-cell;
+        width: 60px;
+        background: url('http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/images/up_icon.png') center no-repeat;
+        /*background-size: contain !important;*/
+    }
+
+    div#time .dayTime span:hover {
+        background: url('http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/images/up_icon.png') center no-repeat rgba(65, 65, 193, 0.33);
+    }
+
+    div#time .dayTime span:first-child {
+        -ms-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+
+    div#time .dayTime .inforTime {
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: white;
+    }
+
+    div#time .dayTime .inforTime div:first-child {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 23px;
+        color: #b8deff;
+    }
+
+    div#time .dayTime .inforTime div:nth-child(2) {
+        text-transform: capitalize;
+        color: #acb7c3;
+    }
+
+    div#time .dayTime .inforTime div:nth-child(3) {
+        text-transform: capitalize;
+        color: #137196;
+    }
+
+    .ui-datepicker .ui-datepicker-next {
+        background: url('http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/images/calendar_icon_next.png') center no-repeat;
+    }
+
+    .ui-datepicker .ui-datepicker-prev {
+        background: url('http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/images/calendar_icon_next.png') center no-repeat;
+        -ms-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+    }
+
+    div#sunMoon {
+        width: 100%;
+        height: 50px;
+    }
+
+    div#sunMoon .sun,
+    div#sunMoon .moon {
+        display: table;
+        width: 100%;
+    }
+
+    .image,
+    .rise,
+    .zenith,
+    .set {
+        display: table-cell;
+        padding: 10px 0px;
+    }
+
+    .rise span,
+    .zenith span,
+    .set span {
+        display: block;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        text-transform: uppercase;
+    }
+
+    .rise span:last-child,
+    .zenith span:last-child,
+    .set span:last-child {
+        color: #29a2b7;
+    }
+
+    .rise span small,
+    .zenith span small,
+    .set span small {
+        font-size: 15px;
+    }
+
+    .image {
+        width: 50px;
+        background: url(http://ftpcontent.worldnow.com/wncustom/wx_icons/wsi50/65.png) center no-repeat;
+    }
+
+    .majorMinor {
+        display: table;
+        width: 100%;
+    }
+
+    .major,
+    .minor {
+        display: table-cell;
+        width: 50%;
+    }
+
+    .minor {
+        border-left: 1px solid white;
+    }
+
+    .major>div,
+    .minor>div {
+        display: inline-block;
+        width: 45%;
+        height: 100%;
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .major>div:first-child,
+    .minor>div:first-child {
+        float: left;
+        padding-left: 10px;
+    }
+
+    .major>div:nth-child(2),
+    .minor>div:nth-child(2) {
+        float: right;
+        text-align: right;
+        padding-right: 10px;
+    }
+
+    small {
+        font-size: 13px !important;
+    }
+
+    div#location {
+        display: table;
+        width: 100%;
+        height: 50px;
+    }
+
+    div#location>div {
+        width: 50%;
+        height: 100%;
+        display: table-cell;
+        padding: 10px;
+    }
+
+    div#location>div:last-child {
+        text-align: right;
+        color: white;
+        text-transform: uppercase;
+    }
 </style>
 
 <div id="WNWidgetsContainerWeatherForcast">
-    <draftdata style="display: none;">
-      <month month="" year="" >
-          <day Date="" SunRise="" SunSet="" LengthofDay="" MoonRise="" MoonSet="" MoonOverhead="" MoonUnderfoot="" MoonPhase="" MajorTimes1="" MajorTimes2="" MinorTimes1=""  MinorTimes2="" Prediction=""  Rating=""  ></day>
-      </month>
-    </draftdata>
     <div id="datepickerCustom">
 
     </div>
@@ -270,26 +483,180 @@
                 <g class="qp-circular-loader">
                     <path class="qp-circular-loader-path" fill="none" d="M 14,1.5 A 12.5,12.5 0 1 1 1.5,14" stroke-linecap="round" />
                 </g>
+
             </svg>
+            <span>Loading...</span>
         </div>
     </div>
     <div id="dayDetail">
+        <div id="time" class="">
+            <!-- header -->
+            <div class="dayRating">
+                <label>day rating</label>
+            </div>
+            <div class="dayTime">
+                <span></span>
+                <div class="inforTime">
+                    <div>thursday</div>
+                    <div>October 14, 2016</div>
+                    <div>Waxing</div>
+                </div>
+                <span></span>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div id="location" class="">
+            <div></div>
+            <div>HO CHi minh</div>
+        </div>
+        <div id="chart" class="">
+            <!-- map -->
+            <div class="columnChart">
 
+            </div>
+            <div class="majorMinor">
+                <div class="major">
+
+                    <div>Major Times</div>
+                    <div>
+                        <div>3:09 <small>AM</small> - 5:09 <small>AM</small></div>
+                        <div>3:33 <small>PM</small> - 5:33 <small>PM</small></div>
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+                <div class="minor">
+                    <div>
+                        <div>10:18 <small>AM</small> - 11:18 <small>AM</small></div>
+                        <div>8:52 <small>PM</small> - 9:52 <small>PM</small></div>
+                    </div>
+                    <div>Minor Times</div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+            <div style="clear:both;"></div>
+        </div>
+        <div id="sunMoon" class="">
+            <!-- sun, moon -->
+            <div class="sun">
+                <div class="image"></div>
+                <div class="rise">
+                    <span>
+                  06:15
+                  <small>pm</small>
+                </span>
+                    <span>
+                  Rise
+                </span>
+                </div>
+                <div class="zenith" style="visibility: hidden;">
+                    <span style="visibility: hidden;">
+                  06:15
+                  <small>pm</small>
+                </span>
+                    <span>
+                  zenith
+                </span>
+                </div>
+                <div class="set">
+                    <span>
+                  06:15
+                  <small>pm</small>
+                </span>
+                    <span>
+                  set
+                </span>
+                </div>
+            </div>
+            <div class="moon">
+                <div class="image"></div>
+                <div class="rise">
+                    <span>
+                06:15
+                <small>pm</small>
+              </span>
+                    <span>
+                Rise
+              </span>
+                </div>
+                <div class="zenith">
+                    <span>
+                06:15
+                <small>pm</small>
+              </span>
+                    <span>
+                zenith
+              </span>
+                </div>
+                <div class="set">
+                    <span>
+                06:15
+                <small>pm</small>
+              </span>
+                    <span>
+                set
+              </span>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
 
 </div>
 <script type="text/javascript">
     var zipcode = 49646;
     var fileExtension = '.csv';
     var poxyURL = 'https://crossorigin.me/';
-    var ftp = 'http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/';
-    var $monthData = ''; // current month
+    ftp = 'http://ftpcontent.worldnow.com/professionalservices/clients/heritage/wwtv/solunar/';
+    var mapGoole = 'http://maps.googleapis.com/maps/api/geocode/json?address={*zipcode*}&sensor=true'; //get name from zip code
+    var isData = true; // if have data on server
+    var jsonMonth = {
+        "city": '',
+        "value": -1,
+        "year": 0,
+        "days": []
+    }; // current month
+    var jsonDay = {
+        "Date": "",
+        // Sunrise
+        "SunRise": "",
+        // Sunset
+        "SunSet": "",
+        // Length of Day
+        "LengthofDay": "",
+        // Moon Rise
+        "MoonRise": "",
+        // Moon Set
+        "MoonSet": "",
+        // Moon Phase
+        "MoonPhase": "",
+        // Major Times 1 (Labeled Excellent Times)
+        "MajorTimes1": "",
+        // Major Times 2 (Labeled Excellent Times)
+        "MajorTimes2": "",
+        // Minor Times 1 (Labeled Good Times)
+        "MinorTimes1": "",
+        // Minor Times 2 (Labeled Good Times)
+        "MinorTimes2": "",
+        // Prediction
+        "Prediction": "",
+        // Rating
+        "Rating": "",
+        // out fields
+        // MoonOverhead
+        "MoonOverhead": "",
+        // MoonUnderfoot
+        "MoonUnderfoot": ""
+    }
     var CDEVWidgetForstCast = {
         showLoading: function() {
             $('#divSpinner').show();
+            $('#datepickerCustom').hide();
         },
         hideLoading: function() {
             $('#divSpinner').hide();
+            $('#datepickerCustom').show();
         },
         getData: function(url, callbackSuccess, callbackError) {
             $.ajax({
@@ -303,110 +670,202 @@
             });
         },
         /* all data to covert to standard xml stucture
-          * XML is standard data struture because it easy to query data.
+         * XML is standard data struture because it easy to query data.
          */
-        adapterData: function(data, type){
-          switch (type){
-            case 'text':
-                this.convertDataTextToXML( data );
-              break;
-            case '':
+        adapterData: function(data, type) {
+            switch (type) {
+                case 'text':
+                    this.convertDataTextToJSON(data);
+                    break;
+                case '':
 
-              break;
-          }
+                    break;
+            }
         },
         // convert text data to standard xml
-        convertDataTextToXML: function(data){
-          // handle data
-          var s = data.trim().split('\n');
-          s.pop(); // remove  title
-          s.shift(); // addition information
-          // converting.....
-          var len = s.length;
-          var $month = $('draftdata month'); // 'll contain all day
-          var $day = $month.find('day'); // formating of one day
-          $month.html(''); //reset content of month
+        convertDataTextToJSON: function(data) {
+            // handle data
+            var s = data.trim().split('\n');
+            s.pop(); // remove  title
+            s.shift(); // addition information
+            // converting.....
+            var len = s.length;
+            var days = [];
+            for (var i = 0; i < len; i++) {
+                var d = JSON.parse(JSON.stringify(jsonDay));
+                var com = s[i].split(',');
+                // Date
+                d.Date = com[0];
+                // Sunrise
+                d.SunRise = com[1];
+                // Sunset
+                d.SunSet = com[2];
+                // Length of Day
+                d.LengthofDay = com[3];
+                // Moon Rise
+                d.MoonRise = com[4];
+                // Moon Set
+                d.MoonSet = com[5];
+                // Moon Phase
+                d.MoonPhase = com[8];
+                // Major Times 1 (Labeled Excellent Times
+                d.MajorTimes1 = com[9];
+                // Major Times 2 (Labeled Excellent Times
+                d.MajorTimes2 = com[10];
+                // Minor Times 1 (Labeled Good Times
+                d.MinorTimes1 = com[11];
+                // Minor Times 2 (Labeled Good Times
+                d.MinorTimes2 = com[12];
+                // Prediction
+                d.Prediction = com[13];
+                // Rating
+                d.Rating = com[14];
+                // out fields
+                // MoonOverhead
+                d.MoonOverhead = com[6];
+                // MoonUnderfoot
+                d.MoonUnderfoot = com[7];
 
-          for( var i = 0; i < len; i++){
-            //<day Date="" SunRise="" SunSet="" LengthofDay="" MoonRise="" MoonSet=""
-            //MoonOverhead="" MoonUnderfoot="" MoonPhase="" MajorTimes1="" MajorTimes2="" MinorTimes1=""
-            // MinorTimes2="" Prediction=""  Rating=""  ></day>
-            var $d = $day.clone();
-            var com = s[i].split(',');
-            // Date
-            $d.attr('Date', com[0]);
-            // Sunrise
-            $d.attr('SunRise', com[1]);
-            // Sunset
-            $d.attr('SunSet', com[2]);
-            // Length of Day
-            $d.attr('LengthofDay', com[3]);
-            // Moon Rise
-            $d.attr('MoonRise', com[4]);
-            // Moon Set
-            $d.attr('MoonSet', com[5]);
-            // Moon Phase
-            $d.attr('MoonPhase', com[8]);
-            // Major Times 1 (Labeled Excellent Times)
-            $d.attr('MajorTimes1', com[9]);
-            // Major Times 2 (Labeled Excellent Times)
-            $d.attr('MajorTimes2', com[10]);
-            // Minor Times 1 (Labeled Good Times)
-            $d.attr('MinorTimes1', com[11]);
-            // Minor Times 2 (Labeled Good Times)
-            $d.attr('MinorTimes2', com[12]);
-            // Prediction
-            $d.attr('Prediction', com[13]);
-            // Rating
-            $d.attr('rating', com[14]);
-            // out fields
-              // MoonOverhead
-              $d.attr('MoonOverhead', s[6]);
-              // MoonUnderfoot
-              $d.attr('MoonUnderfoot', s[7]);
-            $month.append($d);
-          }
-          $monthData = $month;
+                days.push(d);
+            }
+            jsonMonth.days = days;
 
         },
         /* view detail of day */
         viewDetailDate: function(time) {
+            if (!isData)
+                return;
+            var day = time.getDate();
+            var dayO = this.getDateOfMonth(day);
+            // get data
+            var fullDate = dayO.Date;
+            var sunRise = dayO.SunRise;
+            var sunSet  = dayO.SunSet;
+            var lengthofDay = dayO.LengthofDay;
+            var moonRise = dayO.MoonRise;
+            var moonSet = dayO.MoonSet;
+            var moonPhase = dayO.MoonPhase;
+            var major1 = dayO.MajorTimes1;
+            var major2 = dayO.MajorTimes2;
+            var minor1 = dayO.MinorTimes1;
+            var minor2 = dayO.MinorTimes2;
+            var prediction = dayO.Prediction;
+            var ratin = dayO.Rating;
+            var city = jsonMonth.city;
+            var moonOverhead = dayO.MoonOverhead;
+            /// time block
+            var dayName = this.getDayName(time);
+            var fullTime = this.getMonthName(time) + ' ' + time.getDate() + ', ' + time.getFullYear();
+            var moonP = moonPhase.split(' ')[1]; // don't khow what is thing?
+              $('#time > div.dayTime > div > div:nth-child(1)').text(dayName);
+              $('#time > div.dayTime > div > div:nth-child(2)').text(fullTime);
+              $('#time > div.dayTime > div > div:nth-child(3)').text(moonP);
+            // location block
+              $('#location > div:nth-child(2)').text(city);
+            // major and minor block
+              $('#chart > div.majorMinor > div.major > div:nth-child(2) > div:nth-child(1)').html(major1.replace(/AM/g, '<small>AM</small>').replace(/PM/g, '<small>PM</small>'));
+              $('#chart > div.majorMinor > div.major > div:nth-child(2) > div:nth-child(2)').html(major2.replace(/AM/g, '<small>AM</small>').replace(/PM/g, '<small>PM</small>'));
+
+              $('#chart > div.majorMinor > div.minor > div:nth-child(1) > div:nth-child(1)').html(major2.replace(/AM/g, '<small>AM</small>').replace(/PM/g, '<small>PM</small>'));
+              $('#chart > div.majorMinor > div.minor > div:nth-child(1) > div:nth-child(2)').html(major2.replace(/AM/g, '<small>AM</small>').replace(/PM/g, '<small>PM</small>'));
+            ////////// sun & moon block
+              // sun
+              $('#sunMoon > div.sun > div.rise > span:nth-child(1)').text(sunRise);
+              $('#sunMoon > div.sun > div.set > span:nth-child(1)').text(sunSet);
+              // moon
+              $('#sunMoon > div.moon > div.rise > span:nth-child(1)').text(moonRise);
+              $('#sunMoon > div.moon > div.zenith > span:nth-child(1)').text(moonOverhead);
+              $('#sunMoon > div.moon > div.set > span:nth-child(1)').text(moonSet);
+                // get image for moon
+              var moonPhaseS = moonPhase.split(' ');
+              var percent = moonPhaseS[0].substring(0, moonPhaseS[0].indexOf('%') );
+              var what = moonPhaseS[1].toLowerCase();
+              var urlImage = ftp + 'SolunarCalendarImages/';
+              var imgName = 'solunar-table-'+ what + percent +'percent.png';
+              var ftpFile = urlImage + imgName;
+              $('#sunMoon > div.moon > div.image').css('background', 'url(' + ftpFile + ') center no-repeat');
+              $('#sunMoon > div.moon > div.image').css('background-size', 'contain');
+
 
         },
-        /**
-         * add some components to calendar
-         * @param  {[type]} month [description]
-         * @param  {[type]} data  [description]
-         * @return {[type]}       [description]
-         */
+        getDateOfMonth: function(day) {
+            return jsonMonth.days[day - 1];
+        },
+        getDayName: function(time) {
+                return ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][time.getDay()];
+        },
+        getMonthName: function(time){
+          return ["January", "February", "March", "April", "May", "June",
+              "July", "August", "September", "October", "November", "December"
+            ][time.getMonth()];
+        },
+          /**
+           * add some components to calendar
+           * @param  {[type]} month [description]
+           * @param  {[type]} data  [description]
+           * @return {[type]}       [description]
+           */
         customMonthOfCalendar: function(month, data) {
 
         },
-        createCalendar: function(id) {
-          var starts = this.getRating($monthData);
-            $('#' + id).datepicker();
-            $('#' + id).datepicker({ dateFormat: 'mm-dd-yy' }); // format to show
-            $('#' + id).datepicker('setDate', '1/1/2017');
-            $('#' + id).removeClass('hasDatepicker');//// fix refrest datepicker
+        createCalendar: function(id, time) {
             $('#' + id).datepicker({
-                inline: true,
-                onSelect: function(date) {
-                    var dateTime = new Date(date);
-                    CDEVWidgetForstCast.viewDetailDate(dateTime);
+              dayNamesMin: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                onSelect: function(date, inst) {
+                    if (isData) {
+                        var day = Number(inst.selectedDay.substring(0, inst.selectedDay.indexOf('<')));
+                        inst.selectedDay = day; // must set day for datepicker agign because inst had wrong day.
+                        var month = inst.selectedMonth;
+                        var year = inst.selectedYear;
+                        inst.inline = false;
+                        var dateTime = new Date((month + 1) + '/' + day + '/' + year);
+                        CDEVWidgetForstCast.viewDetailDate(dateTime);
+                    }
+
+                },
+                onChangeMonthYear: function(year, month, inst) {
+                    CDEVWidgetForstCast.showLoading();
+                    var url = poxyURL + ftp + 'csv/' + zipcode + '_' + month + '_' + year + fileExtension;
+                    CDEVWidgetForstCast.getData(url, function(data) {
+                        isData = true;
+                        // console.log(data);
+                        CDEVWidgetForstCast.adapterData(data, 'text');
+                        var starts = CDEVWidgetForstCast.getRating(); // get Start
+                        CDEVWidgetForstCast.addStartToDate(starts); // add Start to calendar
+                        CDEVWidgetForstCast.hideLoading();
+                        CDEVWidgetForstCast.viewDetailDate(new Date( month + '/1/' + year ));
+                    }, function(err) {
+                        isData = false;
+                        CDEVWidgetForstCast.hideLoading();
+                    });
                 }
             });
+            // format day of datepicker and conditional for setDate will be run.
+            $('#' + id).datepicker({
+                dateFormat: 'mm-dd-yy'
+            }); // format to show
+            // $('#' + id).datepicker('setDate', time);
+            if (isData) {
+                var starts = this.getRating(); // get Start
+                this.addStartToDate(starts); // add Start to calendar
+            }
+            // change date color when click
+            $('#datepickerCustom > div > table > tbody > tr > td > a').on('click', function() {
+                $('#datepickerCustom > div > table > tbody > tr > td > a').removeClass('ui-state-active');
+                $(this).addClass('ui-state-active');
+            });
+            // show detail
+            CDEVWidgetForstCast.viewDetailDate(time);
 
-            $('.ui-widget.ui-widget-content:eq(1)').remove(); // fix refrest datepicker
-          this.addStartToDate(starts);
         },
         /**
          * gat rating
          * @param  {[type]} data [description]
          * @return {[Array]}      all day of month
          */
-        getRating: function($data) {
-            var $days = $data.find('day');
-            var len = $days.length;
+        getRating: function() {
+            var days = jsonMonth.days;
+            var len = days.length;
             var onestar = '1star.gif';
             var twostar = '2star.gif';
             var threestar = '3star.gif';
@@ -414,52 +873,63 @@
             var urlImage = ftp + 'SolunarCalendarImages/';
             var stars = [];
             for (var i = 0; i < len; i++) {
-                var $day = $($days[i]);
-                var number = Number( $day.attr('rating') );
+                var day = days[i];
+                var number = Number(day.Rating);
                 switch (number) {
                     case 1:
-                        stars.push( urlImage + onestar );
+                        stars.push(urlImage + onestar);
                         break;
                     case 2:
-                        stars.push( urlImage + twostar );
+                        stars.push(urlImage + twostar);
                         break;
                     case 3:
-                        stars.push( urlImage + threestar );
+                        stars.push(urlImage + threestar);
                         break;
                     case 4:
-                        stars.push( urlImage + fourstar );
+                        stars.push(urlImage + fourstar);
                         break;
                 }
 
             }
             return stars;
         },
-        addStartToDate: function (stars){
-          $('#datepickerCustom > div > table > tbody > tr > td > a').each(function(index){
-            $this = $(this);
-            $this.append('<img src='+ stars[index] + ' style="display: block;margin: 0 auto;max-width: 60%;" >');
-          });
+        addStartToDate: function(stars) {
+            if ($('#datepickerCustom > div > table > tbody > tr > td > a > img').length != 0)
+                return;
+            $('#datepickerCustom > div > table > tbody > tr > td > a').each(function(index) {
+                $this = $(this);
+                $this.append('<img src=' + stars[index] + ' style="display: block;margin: 0 auto;max-width: 60%;" >');
+            });
         }
 
     }
     $(function() {
         var time = new Date();
-        var month = 1;
-        var year = 2017;
-        var url = poxyURL + ftp + 'csv/' + zipcode + '_' + month + '_' + year + fileExtension;
+        var url = poxyURL + ftp + 'csv/' + zipcode + '_' + (time.getMonth() + 1) + '_' + time.getFullYear() + fileExtension;
+        // get name city from zipcode
+
+        CDEVWidgetForstCast.getData(mapGoole.replace(/\{\*zipcode\*\}/g, zipcode), function(data) {
+            console.log(data);
+            var city = data.results[0].formatted_address.split(',')[0];
+            jsonMonth.city = city;
+        }, function(err) {
+            console.log(err);
+        });
+        // get data
         CDEVWidgetForstCast.showLoading();
         CDEVWidgetForstCast.getData(url, function(data) {
+            isData = true;
             // console.log(data);
             CDEVWidgetForstCast.adapterData(data, 'text');
             // create Calendar
-             CDEVWidgetForstCast.createCalendar('datepickerCustom');
+            CDEVWidgetForstCast.createCalendar('datepickerCustom', new Date());
 
             CDEVWidgetForstCast.hideLoading();
         }, function(err) {
-            console.log(err);
-
-
-
+            CDEVWidgetForstCast.hideLoading();
+            isData = false;
+            CDEVWidgetForstCast.createCalendar('datepickerCustom');
         });
+
     });
 </script>
