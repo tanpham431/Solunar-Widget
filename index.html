@@ -828,6 +828,7 @@
                     CDEVWidgetForstCast.showLoading();
                     var url = poxyURL + ftp + 'csv/' + zipcode + '_' + month + '_' + year + fileExtension;
                     CDEVWidgetForstCast.getData(url, function(data) {
+                        $('#dayDetail').show();
                         isData = true;
                         // console.log(data);
                         CDEVWidgetForstCast.adapterData(data, 'text');
@@ -951,6 +952,7 @@
         // get data
         CDEVWidgetForstCast.showLoading();
         CDEVWidgetForstCast.getData(url, function(data) {
+            $('#dayDetail').show();
             isData = true;
             // console.log(data);
             CDEVWidgetForstCast.adapterData(data, 'text');
