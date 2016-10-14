@@ -842,6 +842,7 @@
                     }, function(err) {
                         isData = false;
                         CDEVWidgetForstCast.hideLoading();
+                        $('#dayDetail').hide();
                     });
                 }
             });
@@ -962,6 +963,7 @@
             CDEVWidgetForstCast.hideLoading();
             isData = false;
             CDEVWidgetForstCast.createCalendar('datepickerCustom');
+            $('#dayDetail').hide();
         });
 
     });
